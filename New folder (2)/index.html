@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JB Group - Elite Event & Real Estate Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica Neue', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            color: #fff;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            position: relative;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 100%;
+            height: 2px;
+            background: #fff;
+            transition: transform 0.3s;
+        }
+
+        .nav-menu a:hover::before {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        .contact-btn {
+            background: #fff;
+            color: #000;
+            padding: 0.8rem 2rem;
+            border: 2px solid #fff;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .contact-btn:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url('https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2000') center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255, 255, 255, 0.03) 2px,
+                rgba(255, 255, 255, 0.03) 4px
+            );
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            letter-spacing: 4px;
+            margin-bottom: 2rem;
+            color: #ddd;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            letter-spacing: -2px;
+        }
+
+        .hero-description {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #ccc;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .hero-tagline {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            color: #aaa;
+            font-style: italic;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            font-size: 1rem;
+            border: 2px solid #fff;
+            cursor: pointer;
+            transition: all 0.4s;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transition: left 0.4s;
+            z-index: -1;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary:hover {
+            color: #000;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+        }
+
+        .btn-secondary::before {
+            background: #fff;
+        }
+
+        .btn-secondary:hover {
+            color: #000;
+        }
+
+        .btn-secondary:hover::before {
+            left: 0;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #111;
+            padding: 6rem 5%;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+
+        .stats-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4rem;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid #333;
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .stat-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-box:hover {
+            border-color: #fff;
+            background: #1a1a1a;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            font-weight: 300;
+        }
+
+        /* Services Section */
+        .services {
+            background: #000;
+            padding: 8rem 5%;
+        }
+
+        .section-header {
+            max-width: 1400px;
+            margin: 0 auto 5rem;
+            text-align: center;
+        }
+
+        .section-label {
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            color: #888;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: #999;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: #111;
+            border: 1px solid #222;
+            overflow: hidden;
+            transition: all 0.4s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            border-color: #fff;
+            transform: translateY(-10px);
+        }
+
+        .service-img {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            transition: all 0.4s;
+        }
+
+        .service-card:hover .service-img {
+            transform: scale(1.05);
+        }
+
+        .service-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, #111, transparent);
+        }
+
+        .service-info {
+            padding: 2.5rem;
+        }
+
+        .service-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .service-text {
+            color: #999;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-link {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .service-link::after {
+            content: ' →';
+            transition: all 0.3s;
+        }
+
+        .service-link:hover {
+            padding-left: 10px;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background: #111;
+            padding: 8rem 5%;
+            border-top: 1px solid #222;
+        }
+
+        .pricing-grid {
+            max-width: 1400px;
+            margin: 4rem auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            border: 1px solid #333;
+            background: #000;
+            transition: all 0.4s;
+        }
+
+        .pricing-card:hover {
+            border-color: #fff;
+            transform: translateY(-10px);
+        }
+
+        .pricing-header {
+            background: #fff;
+            color: #000;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .pricing-header h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .pricing-body {
+            padding: 3rem 2rem;
+            background: #0a0a0a;
+            text-align: center;
+        }
+
+        .pricing-feature {
+            padding: 1rem 0;
+            color: #999;
+            font-size: 1rem;
+            border-bottom: 1px solid #222;
+        }
+
+        .pricing-feature:last-of-type {
+            border-bottom: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-btn {
+            background: #fff;
+            color: #000;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            margin-top: 1rem;
+            border: 2px solid #fff;
+        }
+
+        .pricing-btn:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            max-width: 1400px;
+            margin: 5rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-box {
+            background: #000;
+            border: 1px solid #333;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.4s;
+        }
+
+        .feature-box:hover {
+            border-color: #fff;
+            background: #0a0a0a;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .feature-box:hover .feature-icon {
+            transform: scale(1.1);
+        }
+
+        .feature-box h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-box p {
+            color: #999;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        /* Our Team Section */
+        .our-team-section {
+            background: #000;
+            padding: 8rem 5%;
+            border-top: 1px solid #222;
+        }
+
+        .team-intro {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+        }
+
+        .team-intro h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .team-intro p {
+            color: #999;
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: #111;
+            border: 1px solid #222;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .team-card:hover {
+            border-color: #fff;
+            transform: translateY(-10px);
+        }
+
+        .team-card-img {
+            width: 100%;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .team-card-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, #111, transparent);
+        }
+
+        .team-card-info {
+            padding: 2rem;
+        }
+
+        .team-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .team-card-location {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-card-org {
+            color: #666;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        @media (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Partners Section */
+        .partners {
+            background: #000;
+            padding: 8rem 5%;
+            border-top: 1px solid #222;
+        }
+
+        .partners-carousel {
+            max-width: 1400px;
+            margin: 4rem auto 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partners-track {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        .partners-slide {
+            min-width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .partner-box {
+            background: #111;
+            border: 1px solid #222;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s;
+            overflow: hidden;
+        }
+
+        .partner-box:hover {
+            border-color: #fff;
+            background: #1a1a1a;
+        }
+
+        .partner-box img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            transition: all 0.4s;
+        }
+
+        .partner-box:hover img {
+            transform: scale(1.1);
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border: 1px solid #fff;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: #fff;
+            width: 40px;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000') center/cover fixed;
+            padding: 8rem 5%;
+            text-align: center;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+
+        .newsletter-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .newsletter h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .newsletter p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: #ccc;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 2px solid #fff;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 1.5rem 2rem;
+            border: none;
+            background: transparent;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .newsletter-input::placeholder {
+            color: #666;
+        }
+
+        .newsletter-btn {
+            background: #fff;
+            color: #000;
+            padding: 1.5rem 3rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Info Cards */
+        .info-section {
+            background: #000;
+            padding: 8rem 5%;
+        }
+
+        .info-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .info-card {
+            background: #111;
+            border: 1px solid #222;
+            padding: 4rem;
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .info-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .info-card:hover {
+            border-color: #fff;
+            background: #0a0a0a;
+        }
+
+        .info-card h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .info-card p {
+            color: #999;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Form Section */
+        .contact-form-section {
+            background: #111;
+            padding: 8rem 5%;
+            border-top: 1px solid #222;
+        }
+
+        .contact-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-form-header h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .contact-form-header p {
+            color: #999;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            background: #000;
+            border: 1px solid #333;
+            padding: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-label {
+            display: block;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: #111;
+            border: 1px solid #333;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Arial', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #fff;
+            background: #1a1a1a;
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: #666;
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            background: #fff;
+            color: #000;
+            padding: 1.2rem 3rem;
+            border: 2px solid #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .form-submit:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .contact-form {
+                padding: 2rem 1.5rem;
+            }
+
+            .contact-form-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            border-top: 1px solid #222;
+            padding: 5rem 5% 3rem;
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto 4rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #888;
+            line-height: 2.2;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 3rem;
+            border-top: 1px solid #222;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: #fff;
+            color: #000;
+            border: 2px solid #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s;
+            font-size: 1.5rem;
+            font-weight: 900;
+            z-index: 999;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partners-slide {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="brand">JB GROUP</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#partners">Partners</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <a href="#contact" class="contact-btn">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-subtitle">Premium Services Since 2020</div>
+            <h1 class="hero-title">A SATISFIED CUSTOMER IS THE BEST BUSINESS STRATEGY OF ALL</h1>
+            <p class="hero-description">WE BELIEVE EVERYONE DESERVES THE BEST SERVICE</p>
+            <p class="hero-tagline">The easiest and quickest way to plan your events and getaways</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="#services" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number" data-target="100000">0</div>
+                <div class="stat-label">Events</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" data-target="50000">0</div>
+                <div class="stat-label">Weddings</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" data-target="75000">0</div>
+                <div class="stat-label">Trips</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" data-target="25000">0</div>
+                <div class="stat-label">HomeStay & Villas</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <div class="section-label">What We Offer</div>
+            <h2 class="section-title">Your One Stop Solution</h2>
+            <p class="section-description">
+                JB Group, owned by Mr. Jayvant Choudhary, is a conglomerate with a strong presence in tourism, events, and hospitality industries. Headquartered in Navi Mumbai.
+            </p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=800');"></div>
+                <div class="service-info">
+                    <h3 class="service-title">Event Planning</h3>
+                    <p class="service-text">
+                        We don't just plan events - we craft unforgettable experiences that reflect your vision and leave lasting impressions on every guest.
+                    </p>
+                    <a href="#" class="service-link">Explore</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800');"></div>
+                <div class="service-info">
+                    <h3 class="service-title">Wedding Planner</h3>
+                    <p class="service-text">
+                        Create magical wedding experiences tailored to your dreams. From intimate gatherings to grand celebrations, we handle every detail.
+                    </p>
+                    <a href="#" class="service-link">Explore</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800');"></div>
+                <div class="service-info">
+                    <h3 class="service-title">Real Estate Consultant</h3>
+                    <p class="service-text">
+                        Expert guidance for all your property needs in Mumbai and beyond. We help you make informed decisions in the real estate market.
+                    </p>
+                    <a href="#" class="service-link">Explore</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section class="our-team-section">
+        <div class="section-header">
+            <h2 class="section-title">OUR TEAM</h2>
+        </div>
+
+        <div class="team-intro">
+            <h3>Mr. Jayvant Choudhary</h3>
+            <p>As the visionary founder and chairman of JB Group, Mr. Jayvant Choudhary has built a diversified conglomerate that stands as a testament to entrepreneurial excellence and customer-first values. With over two decades of experience in the hospitality, events, and real estate sectors, he has transformed JB Group into one of Mumbai's most trusted names in premium services.</p>
+            <p>Under his leadership, JB Group has expanded from a single venture into a multi-faceted organization encompassing event management, luxury banquets, holiday resorts, catering services, real estate consultancy, and agricultural ventures. His commitment to quality and innovation has earned the group recognition across Maharashtra and beyond.</p>
+            <p>Mr. Choudhary's philosophy is simple yet powerful: "A satisfied customer is the best business strategy of all." This principle guides every decision and drives the group's relentless pursuit of excellence. His hands-on approach and attention to detail ensure that whether it's a grand wedding, a corporate event, or a property investment, clients receive nothing but the finest service.</p>
+            <p>Beyond business, Mr. Choudhary is deeply committed to social responsibility and community development, believing that true success is measured not just in profit, but in positive impact on society.</p>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-card" onclick="window.location.href='tithee-banquets.html';" style="cursor: pointer;">
+                <div class="team-card-img" style="background-image: url('images/team_1.jpg');"></div>
+                <div class="team-card-info">
+                    <h3 class="team-card-title">Tithee Banquets</h3>
+                    <p class="team-card-location">Sector 20,Neelam Navi Mumbai,410218</p>
+                    <p class="team-card-org">JB GROUP of Organizer</p>
+                </div>
+            </div>
+
+            <div class="team-card" onclick="window.location.href='Ellora_Banquets.html';" style="cursor: pointer;">
+                <div class="team-card-img" style="background-image: url('images/team_2.webp');"></div>
+                <div class="team-card-info">
+                    <h3 class="team-card-title">Ellora Banquets</h3>
+                    <p class="team-card-location">Ellora Halls,Sector 11,Sanpada,400705</p>
+                    <p class="team-card-org">JB GROUP of Organizer</p>
+                </div>
+            </div>
+
+            <div class="team-card" onclick="window.location.href='visava-amusement.html';" style="cursor: pointer;">
+                <div class="team-card-img" style="background-image: url('images/team_3.jpg');"></div>
+                <div class="team-card-info">
+                    <h3 class="team-card-title">Visava Amusement Park&Resort</h3>
+                    <p class="team-card-location">Panvel Kunda, Manor,Palghar,410221</p>
+                    <p class="team-card-org">JB GROUP of Organizer</p>
+                </div>
+            </div>
+
+            <div class="team-card" onclick="window.location.href='jmd-catering.html';" style="cursor: pointer;">
+                <div class="team-card-img" style="background-image: url('images/team_4.webp');"></div>
+                <div class="team-card-info">
+                    <h3 class="team-card-title">JMD Catering Services</h3>
+                    <p class="team-card-location">Navi Mumbai,410218</p>
+                    <p class="team-card-org">JB GROUP of Organizer</p>
+                </div>
+            </div>
+
+            <div class="team-card" onclick="window.location.href='panoromy-holiday.html';" style="cursor: pointer;">
+                <div class="team-card-img" style="background-image: url('images/team_5.jpeg');"></div>
+                <div class="team-card-info">
+                    <h3 class="team-card-title">Panoromy Holiday</h3>
+                    <p class="team-card-location">Navi Mumbai,410218</p>
+                    <p class="team-card-org">JB GROUP of Organizer</p>
+                </div>
+            </div>
+
+            <div class="team-card" onclick="window.location.href='panoromy-tours.html';" style="cursor: pointer;">
+                <div class="team-card-img" style="background-image: url('images/team_6.jpg');"></div>
+                <div class="team-card-info">
+                    <h3 class="team-card-title">Panoromy Holiday Tours&Travels</h3>
+                    <p class="team-card-location">Navi Mumbai,410218</p>
+                    <p class="team-card-org">JB GROUP of Organizer</p>
+                </div>
+            </div>
+
+            <div class="team-card" onclick="window.location.href='yadnesh-enterprises.html';" style="cursor: pointer;">
+                <div class="team-card-img" style="background-image: url('images/team_9.jpeg');"></div>
+                <div class="team-card-info">
+                    <h3 class="team-card-title">Yadnesh Enterprises</h3>
+                    <p class="team-card-location">Navi Mumbai,410218</p>
+                    <p class="team-card-org">JB GROUP of Organizer</p>
+                </div>
+            </div>
+
+            <div class="team-card" onclick="window.location.href='social-service.html';" style="cursor: pointer;">
+                <div class="team-card-img" style="background-image: url('images/team_8.jpg');"></div>
+                <div class="team-card-info">
+                    <h3 class="team-card-title">Social Service</h3>
+                    <p class="team-card-location">Navi Mumbai,410218</p>
+                    <p class="team-card-org">JB GROUP of Organizer</p>
+                </div>
+            </div>
+
+            <div class="team-card" onclick="window.location.href='tithee-catering.html';" style="cursor: pointer;">
+                <div class="team-card-img" style="background-image: url('images/team_7.jpg');"></div>
+                <div class="team-card-info">
+                    <h3 class="team-card-title">Tithee Catering&Events</h3>
+                    <p class="team-card-location">Navi Mumbai,410218</p>
+                    <p class="team-card-org">JB GROUP of Organizer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="section-header">
+            <div class="section-label">Our Packages</div>
+            <h2 class="section-title">Choose Your Plan</h2>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>EVENT MANAGEMENT</h3>
+                </div>
+                <div class="pricing-body">
+                    <div class="pricing-feature">10GB Storage</div>
+                    <div class="pricing-feature">5 Email Addresses</div>
+                    <div class="pricing-feature">1 Domain</div>
+                    <div class="pricing-feature">24/7 Support</div>
+                    <a href="#contact" class="pricing-btn">BUY NOW</a>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>FIELD TRIP'S</h3>
+                </div>
+                <div class="pricing-body">
+                    <div class="pricing-feature">100GB Storage</div>
+                    <div class="pricing-feature">20 Email Addresses</div>
+                    <div class="pricing-feature">10 Domains</div>
+                    <div class="pricing-feature">24/7 Support</div>
+                    <a href="#contact" class="pricing-btn">BUY NOW</a>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>REAL ESTATE</h3>
+                </div>
+                <div class="pricing-body">
+                    <div class="pricing-feature">Unlimited Storage</div>
+                    <div class="pricing-feature">100 Email Addresses</div>
+                    <div class="pricing-feature">25 Domains</div>
+                    <div class="pricing-feature">24/7 Support</div>
+                    <a href="#contact" class="pricing-btn">BUY NOW</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="features-grid">
+            <div class="feature-box">
+                <div class="feature-icon">📊</div>
+                <h4>Support</h4>
+                <p>The JB group is also planning to enter various sectors including banking and mining in the country. It is awaiting the Reserve Bank of India's (RBI) nod to enter the banking space. The Group, which has mining operations in China and upcoming mining venture in Indonesia, is also exploring opportunities in the mining sector in the country.</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">⚙️</div>
+                <h4>prompt pricipal</h4>
+                <p>"We are seeing a great potential in the Indian hospitality space. We will build IT parks, residential and commercial complexes apart from the hotels and resorts in tier-I and tier- II cities", said JB group chairman Bhupen Surani.</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">📈</div>
+                <h4>pie chart</h4>
+                <p>The group is planning to invest Rs 1200 crore in Goa with five projects in 300 acre of land, which it has bought in Goa. It will have India's first Sofital resort, which is Accor's Five-star brand, under this project. It is under talks with various global chains to set up another hotel chain in the land. It already has 40-room Coconut Groove Hotel in Goa.</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">📅</div>
+                <h4>future plans</h4>
+                <p>Besides this, the group will set up 300 Timeshare villas under the Accor Premier Vacation Club in Goa.</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">💡</div>
+                <h4>future ides</h4>
+                <p>It is also planning to build 300-fractionally-owned villas under the project apart from a marina, a bay to park large and medium sized yatches, in Goa Surani said.</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">❤️</div>
+                <h4>time invest</h4>
+                <p>AFinancial statements and other information important to Investors can be found in this section. The Company does not make presentations for institutional investors or to the analysts.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners" id="partners">
+        <div class="section-header">
+            <div class="section-label">Collaboration</div>
+            <h2 class="section-title">Our Esteemed Partners</h2>
+        </div>
+
+        <div class="partners-carousel">
+            <div class="partners-track">
+                <!-- Slide 1 -->
+                <div class="partners-slide">
+                    <div class="partner-box">
+                        <img src="images/img_1.webp" alt="Partner 1">
+                    </div>
+                    <div class="partner-box">
+                        <img src="images/img_2.png" alt="Partner 2">
+                    </div>
+                    <div class="partner-box">
+                        <img src="images/img_3.avif" alt="Partner 3">
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="partners-slide">
+                    <div class="partner-box">
+                        <img src="images/img_4.jpeg" alt="Partner 4">
+                    </div>
+                    <div class="partner-box">
+                        <img src="images/img_5.jpeg" alt="Partner 5">
+                    </div>
+                    <div class="partner-box">
+                        <img src="images/img_6.jpeg" alt="Partner 6">
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Subscribe</h2>
+            <p>Be the first to hear our latest news.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                <input type="email" class="newsletter-input" placeholder="Your Email Address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Info Cards -->
+    <section class="info-section">
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Why Choose Us</h3>
+                <p>
+                    With over two decades of excellence in the hospitality and events industry, JB Group has become Mumbai's most trusted name for premium services. We combine innovative solutions with personalized attention to exceed expectations every time. Our dedication to quality, professionalism, and customer satisfaction sets us apart in the industry.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3>What We Will Do</h3>
+                <p>
+                    From grand weddings and corporate events to luxury banquet services and holiday packages, we handle every aspect of your special occasions. Our real estate consultancy helps you make informed property decisions, while our catering services ensure unforgettable culinary experiences. Whatever your needs, we deliver excellence.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3>Our Commitment</h3>
+                <p>
+                    We are committed to delivering seamless experiences from start to finish. Every project receives our full attention, with dedicated teams ensuring flawless execution at every step. Our transparent communication, attention to detail, and unwavering commitment to your vision guarantee results that exceed your expectations.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3>About Us</h3>
+                <p>
+                    Founded by visionary entrepreneur Mr. Jayvant Choudhary, JB Group has grown from a single venture into a diversified conglomerate spanning events, hospitality, real estate, and agriculture. Headquartered in Navi Mumbai, we continue to expand our services while maintaining the highest standards of quality and customer care.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section" id="contact">
+        <div class="contact-form-container">
+            <div class="contact-form-header">
+                <h2>Contact Form</h2>
+                <p>Get in touch with us. We'd love to hear from you.</p>
+            </div>
+
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for your message! We will get back to you soon.');">
+                <div class="form-group">
+                    <label class="form-label" for="name">Name</label>
+                    <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="subject">Subject</label>
+                    <input type="text" id="subject" class="form-input" placeholder="Enter subject" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="message">Your Message</label>
+                    <textarea id="message" class="form-textarea" placeholder="Enter your message" required></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>JB GROUP</h3>
+                <p>
+                    Premium event planning and real estate solutions. Creating unforgettable experiences and helping you find your perfect property.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>CONTACT</h3>
+                <p>📍 Navi Mumbai</p>
+                <p>📞 +91 8888888888</p>
+                <p>✉️ info@jbgroup.net.in</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>SERVICES</h3>
+                <a href="#">Event Planning</a>
+                <a href="#">Wedding Planning</a>
+                <a href="#">Real Estate</a>
+                <a href="#">Hospitality</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>COMPANY</h3>
+                <a href="#">About Us</a>
+                <a href="#">Our Team</a>
+                <a href="#">Careers</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2024 JB GROUP. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top" onclick="scrollToTop()">↑</div>
+
+    <script>
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show/hide scroll button
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.querySelector('.scroll-top');
+            if (window.scrollY > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+
+        document.querySelectorAll('.stat-box, .service-card, .info-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animated counter
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    element.textContent = Math.floor(current).toLocaleString();
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target.toLocaleString();
+                }
+            };
+            updateCounter();
+        }
+
+        const counterObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target.querySelector('.stat-number');
+                    if (!counter.classList.contains('counted')) {
+                        counter.classList.add('counted');
+                        animateCounter(counter);
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.stat-box').forEach(el => {
+            counterObserver.observe(el);
+        });
+
+        // Partners Carousel
+        let currentSlide = 0;
+        const track = document.querySelector('.partners-track');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = 2;
+
+        function moveToSlide(index) {
+            currentSlide = index;
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            moveToSlide(currentSlide);
+        }
+
+        let carouselInterval = setInterval(nextSlide, 5000);
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                moveToSlide(index);
+                clearInterval(carouselInterval);
+                carouselInterval = setInterval(nextSlide, 5000);
+            });
+        });
+
+        const carousel = document.querySelector('.partners-carousel');
+        carousel.addEventListener('mouseenter', () => clearInterval(carouselInterval));
+        carousel.addEventListener('mouseleave', () => carouselInterval = setInterval(nextSlide, 5000));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
